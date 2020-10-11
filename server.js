@@ -3,6 +3,12 @@ const bodyParser = require('body-parser');
 
 const app = express();
 app.use(bodyParser.json());
+app.set('views', './views');
+app.set('view engine', 'pug');
+
+app.get('/', function (req, res) {
+    res.render('index', { title: 'Hey', message: 'Static template is loaded for homepage' })
+  })
 
 const mockUserData=[
     { name:'Mark' },
